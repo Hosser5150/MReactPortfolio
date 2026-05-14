@@ -402,7 +402,6 @@ function App() {
                 />
               </div>
               <figcaption>
-                <span>MH</span>
                 <p>Matthew Hoskins</p>
               </figcaption>
             </figure>
@@ -440,53 +439,8 @@ function DepthBackdrop() {
       <TerminalWebGLScene />
       <div className="cursor-aura" />
       <div className="terminal-dither-plane" />
-      <RetroParallaxField />
       <div className="terminal-frame" />
       <div className="scanline-field" />
-    </div>
-  );
-}
-
-function RetroParallaxField() {
-  const fieldRef = useRef(null);
-
-  useEffect(() => {
-    const field = fieldRef.current;
-    if (!field) {
-      return undefined;
-    }
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return undefined;
-    }
-
-    let frameId = 0;
-    const syncParallax = () => {
-      frameId = 0;
-      const tileHeight = Math.max(window.innerHeight * 1.2, 720);
-      const scroll = window.scrollY;
-      field.style.setProperty("--retro-back-y", `${-((scroll * 0.075) % tileHeight).toFixed(1)}px`);
-      field.style.setProperty("--retro-mid-y", `${-((scroll * 0.16) % tileHeight).toFixed(1)}px`);
-      field.style.setProperty("--retro-front-y", `${-((scroll * 0.32) % tileHeight).toFixed(1)}px`);
-    };
-    const requestParallaxSync = () => {
-      if (!frameId) {
-        frameId = requestAnimationFrame(syncParallax);
-      }
-    };
-
-    requestParallaxSync();
-    window.addEventListener("scroll", requestParallaxSync, { passive: true });
-    return () => {
-      cancelAnimationFrame(frameId);
-      window.removeEventListener("scroll", requestParallaxSync);
-    };
-  }, []);
-
-  return (
-    <div className="retro-parallax-stack" ref={fieldRef}>
-      <div className="retro-parallax-layer retro-parallax-layer-back" />
-      <div className="retro-parallax-layer retro-parallax-layer-mid" />
-      <div className="retro-parallax-layer retro-parallax-layer-front" />
     </div>
   );
 }
@@ -654,7 +608,7 @@ function TerminalWebGLScene() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
     const deviceMemory = navigator.deviceMemory || 8;
-    const particleCount = reducedMotion ? 1200 : coarsePointer ? 3600 : deviceMemory < 8 ? 6200 : 9200;
+    const particleCount = reducedMotion ? 700 : coarsePointer ? 1800 : deviceMemory < 8 ? 3200 : 4800;
     const stride = 5;
     const particleData = new Float32Array(particleCount * stride);
     const laneCount = coarsePointer ? 96 : 176;
@@ -741,9 +695,9 @@ function TerminalWebGLScene() {
 
     const resize = () => {
       const viewportPixels = Math.max(1, window.innerWidth * window.innerHeight);
-      const maxCanvasPixels = reducedMotion ? 520000 : coarsePointer ? 820000 : 1500000;
+      const maxCanvasPixels = reducedMotion ? 360000 : coarsePointer ? 520000 : 900000;
       const pixelCap = Math.sqrt(maxCanvasPixels / viewportPixels);
-      const dprCap = reducedMotion ? 0.75 : coarsePointer ? 0.9 : 1;
+      const dprCap = reducedMotion ? 0.65 : coarsePointer ? 0.75 : 0.85;
       const dpr = Math.max(0.5, Math.min(window.devicePixelRatio || 1, dprCap, pixelCap));
       const width = Math.max(1, Math.floor(window.innerWidth * dpr));
       const height = Math.max(1, Math.floor(window.innerHeight * dpr));
@@ -760,7 +714,7 @@ function TerminalWebGLScene() {
     let frameId = 0;
     let lastFrame = 0;
     const start = performance.now();
-    const minFrameTime = 1000 / (reducedMotion ? 18 : coarsePointer ? 28 : 38);
+    const minFrameTime = 1000 / (reducedMotion ? 12 : coarsePointer ? 20 : 28);
     const render = (now = performance.now()) => {
       if (now - lastFrame < minFrameTime) {
         frameId = requestAnimationFrame(render);

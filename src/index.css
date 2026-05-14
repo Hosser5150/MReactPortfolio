@@ -164,80 +164,6 @@ img {
   transform-origin: center;
 }
 
-.retro-parallax-stack {
-  --retro-back-y: 0px;
-  --retro-front-y: 0px;
-  --retro-mid-y: 0px;
-  inset: -22vh -18vw;
-  mix-blend-mode: screen;
-  opacity: 0.82;
-  overflow: hidden;
-  position: absolute;
-  transform-style: preserve-3d;
-}
-
-.retro-parallax-layer {
-  filter: drop-shadow(0 0 18px rgba(77, 255, 111, 0.16));
-  height: 420vh;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: -140vh;
-  transform-origin: center;
-  will-change: transform;
-}
-
-.retro-parallax-layer-back {
-  background:
-    radial-gradient(circle at 12% 16%, rgba(77, 255, 111, 0.28) 0 0.14rem, transparent 0.2rem),
-    radial-gradient(circle at 78% 28%, rgba(0, 240, 255, 0.26) 0 0.16rem, transparent 0.22rem),
-    radial-gradient(circle at 42% 72%, rgba(255, 196, 0, 0.16) 0 0.12rem, transparent 0.18rem),
-    linear-gradient(90deg, transparent 0 10%, rgba(77, 255, 111, 0.075) 10.2% 10.8%, transparent 11% 30%, rgba(0, 240, 255, 0.065) 30.2% 30.8%, transparent 31% 100%);
-  background-size:
-    8.5rem 7rem,
-    10rem 9rem,
-    7rem 8rem,
-    16rem 100%;
-  opacity: 0.78;
-  transform:
-    translate3d(0, var(--retro-back-y), -640px)
-    scale(1.08);
-}
-
-.retro-parallax-layer-mid {
-  background:
-    linear-gradient(90deg, transparent 0 18%, rgba(0, 240, 255, 0.18) 18.2% 18.9%, transparent 19.1% 54%, rgba(77, 255, 111, 0.18) 54.2% 54.9%, transparent 55.1% 100%),
-    linear-gradient(0deg, transparent 0 16%, rgba(77, 255, 111, 0.105) 16.2% 16.7%, transparent 17% 58%, rgba(0, 240, 255, 0.095) 58.2% 58.7%, transparent 59% 100%),
-    radial-gradient(circle at 22% 44%, rgba(77, 255, 111, 0.24) 0 0.2rem, transparent 0.28rem),
-    radial-gradient(circle at 64% 62%, rgba(0, 240, 255, 0.26) 0 0.19rem, transparent 0.26rem);
-  background-size:
-    13rem 100%,
-    100% 11rem,
-    10rem 8rem,
-    9rem 7.5rem;
-  filter: drop-shadow(0 0 24px rgba(0, 240, 255, 0.18));
-  opacity: 0.7;
-  transform:
-    translate3d(0, var(--retro-mid-y), -360px)
-    scale(1.16);
-}
-
-.retro-parallax-layer-front {
-  background:
-    radial-gradient(circle at 18% 22%, rgba(77, 255, 111, 0.42) 0 0.1rem, transparent 0.18rem),
-    radial-gradient(circle at 86% 36%, rgba(0, 240, 255, 0.38) 0 0.11rem, transparent 0.18rem),
-    linear-gradient(90deg, transparent 0 6%, rgba(77, 255, 111, 0.2) 6.1% 6.38%, transparent 6.7% 84%, rgba(0, 240, 255, 0.18) 84.1% 84.38%, transparent 84.7% 100%);
-  background-size:
-    5.5rem 5rem,
-    5rem 5.8rem,
-    6.5rem 100%;
-  filter: drop-shadow(0 0 30px rgba(77, 255, 111, 0.24));
-  opacity: 0.58;
-  transform:
-    translate3d(0, var(--retro-front-y), -140px)
-    scale(1.22);
-}
-
 .terminal-frame {
   background:
     linear-gradient(90deg, rgba(77, 255, 111, 0.2), transparent 18% 82%, rgba(0, 240, 255, 0.18)),
@@ -489,15 +415,8 @@ img {
   border-radius: 14px;
   color: rgba(246, 248, 255, 0.84);
   display: flex;
-  gap: 0.66rem;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.72rem 0.78rem;
-}
-
-.headshot-card figcaption span {
-  color: var(--cyan);
-  font-family: "IBM Plex Mono", "Sora", monospace;
-  font-size: 0.76rem;
 }
 
 .headshot-card figcaption p {
@@ -1137,10 +1056,6 @@ strong.motion-words {
     opacity: 0.28;
   }
 
-  .retro-parallax-stack {
-    opacity: 0.42;
-  }
-
   .brand-mark {
     height: 3rem;
     width: 5.6rem;
@@ -1250,7 +1165,6 @@ strong.motion-words {
 
   .depth-backdrop::before,
   .terminal-dither-plane,
-  .retro-parallax-layer,
   .menu-card,
   .report-layout,
   .site-shell::before,
