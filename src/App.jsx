@@ -9,6 +9,9 @@ import desk from "./assets/mydesk.jpg";
 import old from "./assets/oldDrive.jpg";
 import setup from "./assets/mysetup.png";
 import stock from "./assets/stock.png";
+import computerAssets from "./assets/computerassets.jpg";
+import deskSetup from "./assets/deskSetup.jpg";
+import imageLaptop from "./assets/imagelaptop.jpg";
 
 const resumePdfUrl = `${import.meta.env.BASE_URL}Matthew_Hoskins_Resume.pdf`;
 
@@ -246,6 +249,7 @@ const reports = [
         paragraphs: [
           "I wanted to work mainly with Microsoft tools and enterprise IT systems because they are widely used in professional computing environments. I was especially interested in tools related to endpoint management, device deployment, user management, and security.",
           "During the term, I gained experience with Bitdefender GravityZone, ManageEngine, Microsoft Intune, Microsoft Azure, Active Directory, Microsoft Office, VPN tools, and computer imaging processes. These technologies were useful because they showed me how organizations manage their hardware, software, users, and security from a centralized backend. I also worked with automation scripts, which helped me understand how repetitive IT tasks can be streamlined and made more reliable.",
+          "I also learned more about audiovisual and presentation technology used in office environments. This included troubleshooting and supporting projectors, ClickShare devices, deployment processes for presentation-sharing hardware, and MirrorOp as office presentation sharing software. Working with these systems gave me a better understanding of how meeting room technology connects hardware, networking, and user experience, especially when staff need reliable ways to present and collaborate.",
         ],
       },
       {
@@ -273,19 +277,22 @@ const reports = [
     ],
     media: [
       {
-        placeholder: true,
-        alt: "Placeholder for a Winter 2026 work term image.",
-        caption: "Winter 2026 work term image placeholder",
+        src: computerAssets,
+        alt: "Computer assets prepared for inventory and deployment work.",
+        caption:
+          "Computer assets organized for inventory, imaging, and deployment work during the Winter 2026 term.",
       },
       {
-        placeholder: true,
-        alt: "Placeholder for a WDG Public Health IT support image.",
-        caption: "WDG Public Health IT image placeholder",
+        src: deskSetup,
+        alt: "A desk setup with IT equipment and workstation hardware.",
+        caption:
+          "A workstation setup showing the day-to-day hardware support and desk equipment I worked with.",
       },
       {
-        placeholder: true,
-        alt: "Placeholder for a Winter 2026 project image.",
-        caption: "Winter 2026 project image placeholder",
+        src: imageLaptop,
+        alt: "A laptop prepared for imaging, support, or deployment.",
+        caption:
+          "Laptop support and deployment work, including imaging, troubleshooting, and preparing devices for users.",
       },
     ],
   },
